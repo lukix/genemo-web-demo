@@ -1,0 +1,71 @@
+html {
+	display: flex;
+	justify-content: center;
+}
+
+body {
+	color: #666;
+	padding: 20px 40px;
+	margin: 0;
+	max-width: 600px;
+	font-size: 1.2rem;
+}
+
+p {
+	text-indent: 1rem;
+	text-align: justify;
+}
+
+.btn {
+	background: white;
+	border: 2px solid #666;
+	border-radius: 4px;
+	padding: 8px;
+	font-weight: bold;
+}
+
+.btn:hover:enabled:not(:active) {
+	background: #eee;
+}
+
+button.btn:active {
+	background: #666;
+	color: white;
+}
+
+.btn:disabled {
+  border-color: #666;
+  color: #666;
+}
+
+a {
+	color: black;
+}
+
+.algorithm-container {
+	border: 1px #666;
+	border-style: solid none;
+	padding: 20px 0;
+	margin: 40px 0;
+}
+
+.algorithm-container .controls {
+	display: flex;
+	justify-content: center;
+}
+
+.algorithm-container .result-list {
+	margin: 30px 0;
+	list-style-type: none;
+	padding: 0;
+}
+
+.result-list li {
+	width: 150px;
+	position: relative;
+}
+
+.result-list .value {
+	position: absolute;
+	left: 150px;
+}

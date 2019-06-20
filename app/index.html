@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>GeneMO Web Example</title>
+  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
+</head>
+<body>
+	<h1>GeneMO Web Example</h1>
+	<p>
+		This is an example of using <a href="https://github.com/lukix/genemo">GeneMO library</a> for running genetic algorithm in web browser.
+		GeneMO executes program in small asynchronous chunks to avoid blocking browser's main thread.
+		Source code of this example can be found in <a href="#">GeneMO Web Example</a> Github repository.
+	</p>
+	<p>
+		This example solves <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman Problem</a>.
+		It searches for the shortest path to visit 17 cities, given distances between each pair of these cities.
+	</p>
+	<div class="algorithm-container">
+		<div class="controls">
+			<button class="btn start-algorithm">Run Evolution</button>
+		</div>
+		<ul class="result-list">
+			<li>Total Distance: <span class="value distance">-</span></li>
+			<li>Generation: <span class="value generation">-</span></li>
+		</ul>
+	</div>
+
+</body>
+</html>
