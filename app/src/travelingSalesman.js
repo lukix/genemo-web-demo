@@ -30,7 +30,7 @@ const evolutionOptions = {
   stopCondition: Genemo.stopCondition({ maxFitness: 2085, maxGenerations: 1000 }),
 };
 
-export default function (callback) {
+export default (callback) => (
   Genemo.runEvolutionAsync({
     ...evolutionOptions,
     iterationCallback: ({ evaluatedPopulation, generation }) => {
@@ -39,5 +39,5 @@ export default function (callback) {
         shortestPath: Math.min(...evaluatedPopulation.map(({ fitness }) => fitness)),
       });
     }
-  });
-}
+  })
+);
