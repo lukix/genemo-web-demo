@@ -6,25 +6,42 @@
   <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 </head>
 <body>
-	<h1>GeneMO Web Example</h1>
-	<p>
-		This is an example of using <a href="https://github.com/lukix/genemo">GeneMO library</a> for running genetic algorithm in web browser.
-		GeneMO executes program in small asynchronous chunks to avoid blocking browser's main thread.
-		Source code of this example can be found in <a href="https://github.com/lukix/genemo-web-demo">GeneMO Web Example</a> Github repository.
-	</p>
-	<p>
-		This example solves <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman Problem</a>.
-		It searches for the shortest path to visit 17 cities, given distances between each pair of these cities.
-	</p>
-	<div class="algorithm-container">
-		<div class="controls">
-			<button class="btn start-algorithm">Run Evolution</button>
-		</div>
-		<ul class="result-list">
-			<li>Total Distance: <span class="value distance">-</span></li>
-			<li>Generation: <span class="value generation">-</span></li>
-		</ul>
-	</div>
-
+  <div class="content-container">
+    <h1>
+      GeneMO Web Demo
+      <a href="https://github.com/lukix/genemo-web-demo" title="GeneMO Web Demo on Github" class="icon-link">
+        <img class="icon" src="./res/github-icon.png" alt="github"/>
+      </a>
+    </h1>
+    <p>
+      This is an example of using <a href="https://github.com/lukix/genemo">GeneMO library</a> to run a genetic algorithm in a web browser.
+      GeneMO executes each iteration asynchronously to avoid blocking the browser's main thread.
+      There is no need to use <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers</a>,
+      although they may be useful if you want to take full advantage of multi-core processors.
+      The Source code of this example can be found in <a href="https://github.com/lukix/genemo-web-demo">GeneMO Web Demo</a> Github repository.
+    </p>
+    <p>
+      This example solves the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman Problem</a>.
+      It searches for the shortest path to visit 17 cities, given distances between each pair of these cities.
+    </p>
+    <div class="algorithm-container">
+      <div class="controls">
+        <button class="btn start-algorithm">Run Evolution</button>
+      </div>
+      <ul class="result-list">
+        <li>Total Distance: <span class="value distance">-</span></li>
+        <li>Generation: <span class="value generation">-</span></li>
+      </ul>
+    </div>
+  </div>
+  <footer>
+    <a href="https://twitter.com/lukaszjenczmyk" title="Twitter" class="social-media-icon-link">
+      <img class="social-media-icon" src="./res/twitter-icon.svg" alt="twitter"/>
+    </a>
+    <a href="https://github.com/lukix" title="Github" class="social-media-icon-link">
+      <img class="social-media-icon" src="./res/github-icon.png" alt="github"/>
+    </a>
+    Łukasz Jenczmyk
+  </footer>
 </body>
 </html>
