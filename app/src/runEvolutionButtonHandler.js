@@ -12,7 +12,9 @@ const runEvolutionButtonHandler = dispatch => async () => {
   }
 
   dispatch({ type: 'RUN_EVOLUTION_START' });
+  console.time('time');
   await solveTravelingSalesman(iterationCallback);
+  console.timeEnd('time');
   dispatch({ type: 'RUN_EVOLUTION_END' });
 };
 
