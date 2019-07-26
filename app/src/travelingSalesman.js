@@ -1,5 +1,5 @@
 import Genemo from 'genemo'
-const distances = require('./data/distances17.json');
+const distances = require('./data/distances48.json');
 
 const cities = [...Array(distances.length).keys()];
 const generateIndividual = Genemo.randomPermutationOf(cities);
@@ -18,24 +18,26 @@ const fitnessFunction = (individual) => {
 const evolutionOptions = {
   generateInitialPopulation: Genemo.generateInitialPopulation({
     generateIndividual,
-    size: 250,
+    size: 500,
   }),
-  selection: Genemo.selection.rank({ minimizeFitness: true }),
+  selection: Genemo.selection.tournament({ size: 3, minimizeFitness: true }),
   reproduce: Genemo.reproduce({
-    crossover: Genemo.crossover.orderOne,
-    mutate: Genemo.mutation.swapTwoGenes,
-    mutationProbability: 0.02,
+    crossover: Genemo.crossover.orderOne(),
+    mutate: Genemo.mutation.swapTwoGenes(),
+    mutationProbability: 0.03,
   }),
-  fitness: fitnessFunction,
-  stopCondition: Genemo.stopCondition({ maxFitness: 2085, maxGenerations: 1000 }),
+  succession: Genemo.elitism({ keepFactor: 0.002, minimizeFitness: true }),
+  evaluatePopulation: Genemo.evaluatePopulation({ fitnessFunction }),
+  stopCondition: Genemo.stopCondition({ maxFitness: 33523, maxIterations: 1000 }),
+  maxBlockingTime: 1000 / 60,
 };
 
 export default (callback) => (
-  Genemo.runEvolutionAsync({
+  Genemo.run({
     ...evolutionOptions,
-    iterationCallback: ({ evaluatedPopulation, generation }) => {
+    iterationCallback: ({ evaluatedPopulation, iteration }) => {
       callback({
-        generation,
+        generation: iteration,
         shortestPath: Math.min(...evaluatedPopulation.map(({ fitness }) => fitness)),
       });
     }
