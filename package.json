@@ -21,7 +21,7 @@
     "webpack-dev-server": "^3.7.2"
   },
   "dependencies": {
-    "genemo": "0.5.2",
+    "genemo": "1.0.0",
     "lodash.throttle": "^4.1.1"
   }
 }
