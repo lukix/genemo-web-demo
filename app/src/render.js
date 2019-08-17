@@ -12,14 +12,16 @@ const renderParam = ($paramBox, { value }) => {
 
 const createRootRenderer = dispatch => {
   const $runButton = document.querySelector('.btn.start-algorithm');
-  const $generationParam = document.querySelector('.value.generation');
+  const $initialDistanceParam = document.querySelector('.value.initial-distance');
+  const $iterationParam = document.querySelector('.value.iteration');
   const $distanceParam = document.querySelector('.value.distance');
 
   return state => {
-    const { isRunning, generation, shortestPath } = state;
+    const { isRunning, initialDistance, iteration, shortestPath } = state;
 
     renderButton($runButton, { isRunning, dispatch });
-    renderParam($generationParam, { value: generation });
+    renderParam($initialDistanceParam, { value: initialDistance });
+    renderParam($iterationParam, { value: iteration });
     renderParam($distanceParam, { value: shortestPath });
   }
 };

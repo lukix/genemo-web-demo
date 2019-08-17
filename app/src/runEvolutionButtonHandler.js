@@ -4,10 +4,16 @@ import solveTravelingSalesman from './travelingSalesman';
 const throttledCall = throttle(callback => callback(), 50);
 
 const runEvolutionButtonHandler = dispatch => async () => {
-  const iterationCallback = ({ generation, shortestPath }) => {
+  const iterationCallback = ({ iteration, shortestPath }) => {
+    if (iteration === 1) {
+      dispatch({
+        type: 'SET_INITIAL_DISTANCE',
+        payload: shortestPath
+      });
+    }
     throttledCall(() => dispatch({
       type: 'UPDATE_EVOLUTION_VALUES',
-      payload: { generation, shortestPath },
+      payload: { iteration, shortestPath },
     }));
   }
 

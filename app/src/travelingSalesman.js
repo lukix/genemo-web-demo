@@ -35,10 +35,10 @@ const evolutionOptions = {
 export default (callback) => (
   Genemo.run({
     ...evolutionOptions,
-    iterationCallback: ({ evaluatedPopulation, iteration }) => {
+    iterationCallback: ({ iteration, getLowestFitnessIndividual }) => {
       callback({
-        generation: iteration,
-        shortestPath: Math.min(...evaluatedPopulation.map(({ fitness }) => fitness)),
+        iteration,
+        shortestPath: getLowestFitnessIndividual().fitness,
       });
     }
   })

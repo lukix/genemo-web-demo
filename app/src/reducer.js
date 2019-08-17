@@ -1,7 +1,8 @@
 const reducer = (
   state = {
     isRunning: false,
-    generation: '-',
+    initialDistance: '-',
+    iteration: '-',
     shortestPath: '-',
   },
   { type, payload }
@@ -11,10 +12,12 @@ const reducer = (
       return { ...state, isRunning: true };
     case 'RUN_EVOLUTION_END':
       return { ...state, isRunning: false };
+    case 'SET_INITIAL_DISTANCE':
+      return { ...state, initialDistance: payload };
     case 'UPDATE_EVOLUTION_VALUES':
       return {
         ...state,
-        generation: payload.generation,
+        iteration: payload.iteration,
         shortestPath: payload.shortestPath,
       };
     default:
